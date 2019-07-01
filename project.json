@@ -1,0 +1,17 @@
+{
+ "name": "My Project",
+ "description": "Enter your project description",
+ "author": {
+  "name": "Zedr0n",
+  "email": "zedr0n@protonmail.com"
+ },
+ "version": "0.1.0",
+ "binaryname": "my-project",
+ "frontend": {
+  "dir": "frontend",
+  "install": "npm install",
+  "build": "npm run build",
+  "bridge": "src",
+  "serve": "npm run serve"
+ }
+}
