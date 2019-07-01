@@ -11,6 +11,10 @@ type LogQuery struct {
 	Log string `graphql:"log"`
 }
 
+type ActiveBranchQuery struct {
+	ActiveBranch string `graphql:"activeBranch"`
+}
+
 type StatsQuery struct {
 	Stats struct {
 		NumberOfRoots int

@@ -21,9 +21,22 @@ func (client *MyClient) LastLog() string {
 	return aQuery.Log
 }
 
+func (client *MyClient) SubscribeRoots(eventName string) {
+	aQuery := &StatsQuery{}
+	client.Subscribe(eventName, aQuery)
+}
+
 func (client *MyClient) SubscribeLogs(eventName string) {
 	aQuery := &LogQuery{}
 	client.Subscribe(eventName, aQuery)
+}
+
+func (client *MyClient) SubscribeBranch(eventName string) {
+	aQuery := &ActiveBranchQuery{}
+	client.Subscribe(eventName, aQuery)
+
+	myLog := client.runtime.Log.New("Branch: ")
+	myLog.Info(aQuery.ActiveBranch)
 }
 
 func (client *MyClient) WailsInit(runtime *wails.Runtime) error {

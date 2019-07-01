@@ -77,14 +77,22 @@ export default {
     return {
       message: " ",
       log : " ",
+      subbed : false
     };
   },
   methods: {
     getMessage: function() {
       let self = this;
-      window.backend.MyClient.NumberOfRoots().then(result => {
-        self.message = result + " roots";
-      });
+      if(!self.subbed)
+      {
+        window.backend.MyClient.SubscribeRoots("number_of_roots").then(result => {
+          wails.events.on("number_of_roots", query => {
+            self.message = query[0].Stats.NumberOfRoots + " roots";
+          })
+        });
+
+        self.subbed = true;
+      }
     },
 
     getLog: function() {

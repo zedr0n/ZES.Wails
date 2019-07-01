@@ -25,7 +25,7 @@ export default {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 20px 1fr 1fr 1fr 20px;
+    grid-template-rows: 20px 1fr 1fr minmax(50px, 1fr) 20px;
   }
 
   .item1 {
